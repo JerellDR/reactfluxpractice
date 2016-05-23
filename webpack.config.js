@@ -1,8 +1,8 @@
 const path = require('path');
-const webpack = require('webpack');
 const merge = require('webpack-merge');
-const TARGET = process.env.npm_lifecycle_event;
+const webpack = require('webpack');
 
+const TARGET = process.env.npm_lifecycle_event;
 const PATHS = {
   app: path.join(__dirname, 'app'),
   build: path.join(__dirname, 'build')
@@ -23,20 +23,28 @@ const common = {
         loaders: ['style', 'css'],
         include: PATHS.app
       }
+    ],
+    preLoaders: [
+      {
+        test: /\.jsx?$/,
+        loaders: ['jshint'],
+        include: PATHS.app
+      }
     ]
   }
 };
 
 if(TARGET === 'start' || !TARGET) {
   module.exports = merge(common, {
-    watchOptions: {
-      poll: true
-    },
+    devtool: 'eval-source-map',
     devServer: {
       contentBase: PATHS.build,
+
       historyApiFallback: true,
       hot: true,
+      inline:true,
       progress: true,
+
       stats: 'errors-only',
       //localhost
       host: process.env.HOST,

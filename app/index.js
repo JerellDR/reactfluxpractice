@@ -1,3 +1,9 @@
-var component = require('./component');
 require('./main.css');
-document.body.appendChild(component());
+
+var component = require('./component');
+var app = document.createElement('div');
+
+
+document.body.appendChild(app);
+
+app.appendChild(component());
