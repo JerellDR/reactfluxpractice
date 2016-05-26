@@ -28,7 +28,7 @@ class NoteStore {
     this.setState({notes});
   }
   delete(id) {
-    this.setSate({
+    this.setState({
       notes: this.notes.filter(note => note.id !==id)
     });
   }

@@ -34,13 +34,6 @@ const common = {
         loaders: ['babel?cacheDirectory'],
         include: PATHS.app
       }
-    ],
-    preLoaders: [
-      {
-        test: /\.jsx?$/,
-        loaders: ['jshint'],
-        include: PATHS.app
-      }
     ]
   }
 };

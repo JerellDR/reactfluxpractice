@@ -1,6 +1,5 @@
 import React from 'react';
 
-export default ({task, ...props}) => <div {...props}> {task} </div>;
 export default class Note extends React.Component {
   constructor(props) {
     super(props);
@@ -67,5 +66,4 @@ export default class Note extends React.Component {
       });
     }
   };
-
 }
